@@ -1,16 +1,20 @@
 import React from 'react';
 import { Container } from './Statistics.styled';
-import Notification from '../Notification/Notification ';
 
-const Statistics = ({ good, neutral, bad, total, positive }) => {
+const Statistics = ({
+  good,
+  neutral,
+  bad,
+  countTotalFeedback,
+  countPositiveFeedbackPercentage,
+}) => {
   return (
     <Container>
-      {!total && <Notification message="There is no feedback" />}
       <span>Good:{good}</span>
       <span>Neutral:{neutral}</span>
       <span>Bad:{bad}</span>
-      <span>Total:{total}</span>
-      <span>Positive feedback:{positive.toFixed()}%</span>
+      <span>Total:{countTotalFeedback}</span>
+      <span>Positive feedback:{countPositiveFeedbackPercentage}%</span>
     </Container>
   );
 };

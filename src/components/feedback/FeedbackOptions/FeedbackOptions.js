@@ -1,18 +1,20 @@
 import React from 'react';
 import { ContainerBtn, Button } from './Options.styled';
 
-const FeedbackOptions = ({ onClickGood, onClickNeutral, onClickBad }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ContainerBtn>
-      <Button type="button" onClick={() => onClickGood()}>
-        Good
-      </Button>
-      <Button type="button" onClick={() => onClickNeutral()}>
-        Neutral
-      </Button>
-      <Button type="button" onClick={() => onClickBad()}>
-        Bad
-      </Button>
+      {options.map(option => (
+        <Button
+          key={option}
+          type="button"
+          onClick={() => {
+            onLeaveFeedback(option);
+          }}
+        >
+          {option}
+        </Button>
+      ))}
     </ContainerBtn>
   );
 };
